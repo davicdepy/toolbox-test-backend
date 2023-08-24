@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api:
+    image: fullstack-test-api
+    build: .
+    networks:
+      - backend
+    ports:
+      - "10001:10001"
+
+  web-cli:
+    image: fullstack-test-api
+    networks:
+      - backend
+    command: sh
+
+networks:
+  backend:
+    driver: bridge
